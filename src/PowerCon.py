@@ -1,8 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-"""t = int(input('Time(hours): '))"""
-
 def energy_power_consumption(time_data, power_data):
     energy_data = np.cumsum(power_data) / 1000 
     fig, ax1 = plt.subplots()
@@ -22,14 +20,7 @@ def energy_power_consumption(time_data, power_data):
     plt.show()
     return energy_data
 
-"""time_data = np.arange(0, t)  
-power_data = []
-for i in range(t):
-    power_data.append(int(input('Enter power consumption for each hour: ')))
-
-e = energy_power_consumption(time_data, power_data)
-
-print('-=Summary=-')
-print('Time data: ',t,'hour(s) in total.')
-print('Power data: ',power_data,'in Watts.')
-print('Energy data: ',e,'in kilo Watts per hour.')"""
+def ac_voltage(amplitude, frequency, time, phase_shift):
+    angular_frequency = 2 * np.pi * frequency
+    voltage = amplitude * np.sin(angular_frequency * time + phase_shift)
+    return voltage
