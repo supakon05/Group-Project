@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from src.PowerCon import energy_power_consumption
 
+############################################
 t = int(input('Time(hours): '))
 
 time_data = np.arange(0, t)  
@@ -11,5 +12,8 @@ for i in range(t):
 
 e = energy_power_consumption(time_data, power_data)
 
-
-
+print('-=Summary=-')
+print('Time data: ',t,'hour(s) in total.')
+print('Power data: ',power_data,'in Watts.')
+print('Energy data: ',e,'in kilo Watts per hour.')
+############################################
