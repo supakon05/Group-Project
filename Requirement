@@ -1,0 +1,5 @@
+# Requirements
+This code require numpy and matplotlib module.
+to install these modules user require to enter these following code in to the terminal.
+"py -m pip install numpy" for numpy
+"py -m pip install matplotlib" for matplotlib
