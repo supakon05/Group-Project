@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from src.PowerCon import energy_power_consumption
-from src.PowerCon import ac_voltage
+from src.Ac_Voltage import ac_voltage
 
 print('Select an option:\n1. Energy and Power Consumption Calculator\n2. AC Voltage Calculator')
 option = int(input('Choose an option: '))
