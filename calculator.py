@@ -1,7 +1,29 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from src.PowerCon import energy_power_consumption
-from src.PowerCon import ac_voltage
+
+def energy_power_consumption(time_data, power_data):
+    energy_data = np.cumsum(power_data) / 1000 
+    fig, ax1 = plt.subplots()
+    ax1.set_xlabel('Time (hours)')
+    ax1.set_ylabel('Energy Consumption (kWh)', color='tab:blue')
+    ax1.plot(time_data, energy_data, color='tab:blue')
+    ax1.tick_params(axis='y', labelcolor='tab:blue')
+
+    ax2 = ax1.twinx()
+    ax2.set_ylabel('Power Consumption (W)', color='tab:red')
+    ax2.plot(time_data, power_data, color='tab:red')
+    ax2.tick_params(axis='y', labelcolor='tab:red')
+
+    plt.title('Energy and Power vs Time')
+    fig.legend(['Energy','Power'])
+    fig.tight_layout()
+    plt.show()
+    return energy_data
+
+def ac_voltage(amplitude, frequency, time, phase_shift):
+    angular_frequency = 2 * np.pi * frequency
+    voltage = amplitude * np.sin(angular_frequency * time + phase_shift)
+    return voltage
 
 print('Select an option:\n1. Energy and Power Consumption Calculator\n2. AC Voltage Calculator')
 option = int(input('Choose an option: '))
